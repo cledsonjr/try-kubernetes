@@ -1,27 +1,17 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: default
   name: solicite-service
 spec:
   replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: solicite-service
   template:
     metadata:
       labels:
         app: solicite-service
     spec:
       containers:
-      - name: solicite-service
-        image: cledsonjr/solicite-service:latest
-        ports:
-        - containerPort: 9090
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
+        - name: solicite-service
+          image: cledsonjr/solicite-service:latest
