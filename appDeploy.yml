@@ -2,7 +2,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   namespace: default
-  name: solicite-backend
+  name: solicite-service
 spec:
   replicas: 1
   strategy:
@@ -13,10 +13,10 @@ spec:
   template:
     metadata:
       labels:
-        app: solicite-backend
+        app: solicite-service
     spec:
       containers:
-      - name: solicite-backend
+      - name: solicite-service
         image: cledsonjr/solicite-service:latest
         ports:
         - containerPort: 80
