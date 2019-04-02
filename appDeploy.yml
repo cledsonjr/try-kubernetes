@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  namespace: teste-deploy
+  namespace: default
   name: solicite-service
 spec:
   replicas: 1
