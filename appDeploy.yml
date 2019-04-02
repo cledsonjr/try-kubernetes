@@ -1,17 +1,8 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: solicite-service
+  name: nginx-pod-example
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: solicite-service
-  template:
-    metadata:
-      labels:
-        app: solicite-service
-    spec:
-      containers:
-        - name: solicite-service
-          image: cledsonjr/solicite-service:latest
+  containers:
+    - name: nginx-pod-example
+      image: library/nginx
